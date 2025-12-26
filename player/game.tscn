@@ -61,7 +61,7 @@ size = Vector3(11, 2, 4)
 material = SubResource("StandardMaterial3D_nm7jd")
 
 [node name="Player" parent="." instance=ExtResource("1_ijeiy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 1)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.7071068, 0, -0.7071068, 0.7071068, 0, 4, 4)
@@ -71,4 +71,4 @@ shadow_enabled = true
 environment = SubResource("Environment_ijeiy")
 
 [node name="Mob" parent="." instance=ExtResource("4_co4pm")]
-transform = Transform3D(-0.112422876, 0, -0.99366045, 0, 1, 0, 0.99366045, 0, -0.112422876, 10.218732, 1.5378499, -1.6006768)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 10.218732, 1.5378499, -1.6006768)
