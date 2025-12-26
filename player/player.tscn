@@ -27,7 +27,7 @@ transform = Transform3D(-0.56, 0, -8.455765e-08, 0, 0.56, 0, 8.455765e-08, 0, -0
 
 [node name="Marker3D" type="Marker3D" parent="Camera3D"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1, 0.9654757, -0.32435715, -1.4865563)
+transform = Transform3D(1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1, 0.52546906, -0.32435715, -1.4865563)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -53,3 +53,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_g1dw6")
 expand_mode = 1
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
