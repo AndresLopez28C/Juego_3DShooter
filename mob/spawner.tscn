@@ -14,7 +14,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54936624, 0)
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 2.0
+wait_time = 4.0
 autostart = true
 
 [node name="spawner_model" parent="." instance=ExtResource("3_lynsj")]

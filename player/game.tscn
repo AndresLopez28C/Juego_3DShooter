@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dl7rvkoattgcx"]
+[gd_scene load_steps=10 format=3 uid="uid://dl7rvkoattgcx"]
 
 [ext_resource type="Texture2D" uid="uid://bos7rridjkps1" path="res://level/checkboard.png" id="1_7ox5r"]
 [ext_resource type="PackedScene" uid="uid://gbmpn7q4h6la" path="res://player/player.tscn" id="1_ijeiy"]
@@ -24,6 +24,9 @@ fog_height_density = 0.2
 
 [sub_resource type="LabelSettings" id="LabelSettings_co4pm"]
 font_size = 50
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xi7o7"]
+size = Vector3(57, 1, 60)
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_xi7o7")
@@ -78,10 +81,28 @@ environment = SubResource("Environment_ijeiy")
 [node name="Spawner" parent="." instance=ExtResource("4_co4pm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 8)
 
+[node name="Spawner2" parent="." instance=ExtResource("4_co4pm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -10)
+
+[node name="Spawner3" parent="." instance=ExtResource("4_co4pm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, -22)
+
 [node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
 offset_left = 70.0
 offset_top = 31.0
 offset_right = 259.0
 offset_bottom = 100.0
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_co4pm")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5, -12, -4.5)
+shape = SubResource("BoxShape3D_xi7o7")
+
+[connection signal="mob_spawned" from="Spawner" to="." method="_on_spawner_mob_spawned"]
+[connection signal="mob_spawned" from="Spawner2" to="." method="_on_spawner_mob_spawned"]
+[connection signal="mob_spawned" from="Spawner3" to="." method="_on_spawner_mob_spawned"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

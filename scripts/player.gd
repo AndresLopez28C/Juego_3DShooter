@@ -3,6 +3,7 @@ extends CharacterBody3D
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	print(name)
 	
 func _unhandled_input(event) -> void:
 	if event is InputEventMouseMotion :
@@ -52,3 +53,5 @@ func _shoot_bullet():
 	%Marker3D.add_child(new_bullet)
 	new_bullet.global_transform = %Marker3D.global_transform
 	%Timer.start()
+	$AudioStreamPlayer.play()
+	$AnimationPlayer.play("disparo")

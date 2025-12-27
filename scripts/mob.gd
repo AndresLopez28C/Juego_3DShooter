@@ -2,7 +2,7 @@ extends RigidBody3D
 @onready var bat_model: Node3D = %bat_model
 @onready var player = get_node("/root/Game/Player")
 @onready var timer: Timer = %Timer
-
+signal die()
 
 var health = 3
 const speed = 3.0
@@ -10,9 +10,11 @@ func _take_damage():
 	if health==0:
 		return
 	health -=1
+	%Damage.play()
 	bat_model._hurt()
 	if health==0:
 		timer.start()
+		%KO.play()
 		set_physics_process(false)
 		gravity_scale=1.0
 		var direction = player.global_position.direction_to(global_position)
@@ -21,7 +23,9 @@ func _take_damage():
 		timer.start()
 		
 		
-func _physics_process(delta: float) -> void:
+		
+		
+func _physics_process(_delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
 	direction.y= 0.0
 	linear_velocity = direction * speed
@@ -30,3 +34,4 @@ func _physics_process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	queue_free()
+	die.emit()
